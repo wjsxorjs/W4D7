@@ -42,7 +42,7 @@
 <body>
     <!--GET방식보다는 느리다. 이는 보안 때문에 그렇다 -->
     <form action="javascript:exe()" method="post"> 
-        <label for="v1">값1:</label>
+        <label for="v1">문자열:</label>
         <input type="text" id="v1" name="u_v1"/>
         <br/>
         <button type="button" id="chkBtn" onclick="exe()">확인</button>
@@ -63,7 +63,7 @@
             let v1 = document.getElementById("v1");
             let trimmed_str = v1.value.trim();
             if(trimmed_str == "" || trimmed_str.length==0){
-                alert("값1을 입력하세요.");
+                alert("문자열을 입력하세요.");
 
                 box.innerHTML = "";
                 v1.value = "";
