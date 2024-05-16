@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex_Regex</title>
+<style>
+    form{
+        display: flex;
+        width: 300px;
+        margin: auto;
+        position: relative;
+    }
+    form>label{
+        margin: 5px;
+        line-height: 25px;
+    }
+    #chkBtn{
+        position: absolute;
+        right: 0px;
+    }
+    #v1{
+        width: 150px;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #chkBtn{
+        margin: 5px;
+        height: 30px;
+    }
+
+    #box{
+        border: 1px solid #777;
+        background: #ddd;
+        margin: auto;
+        width: 300px;
+        height: 100px;
+    }
+
+</style>
+</head>
+<body>
+    <!--GET방식보다는 느리다. 이는 보안 때문에 그렇다 -->
+    <form action="javascript:exe()" method="post"> 
+        <label for="v1">값1:</label>
+        <input type="text" id="v1" name="u_v1"/>
+        <br/>
+        <button type="button" id="chkBtn" onclick="exe()">확인</button>
+    </form>
+    <div id="box">
+
+    </div>
+
+
+
+
+
+
+    <script>
+        let box = document.getElementById("box");
+
+        function exe(){
+            let v1 = document.getElementById("v1");
+            let trimmed_str = v1.value.trim();
+            if(trimmed_str == "" || trimmed_str.length==0){
+                alert("값1을 입력하세요.");
+
+                box.innerHTML = "";
+                v1.value = "";
+                v1.focus(); // 커서 입력란에 놓기
+
+                return; //제어권 반환 - 아래 구문 수행 X
+            }
+            
+            final_str = remove_space(trimmed_str);
+            
+
+            box.innerHTML = final_str;
+
+            
+        }
+
+        function remove_space(src_str){
+            let tar_str = "";
+
+            for(let i=0; i<src_str.length;i++){
+                if(src_str[i] == " "){
+                    continue;
+                }
+                tar_str += src_str[i];
+            }
+
+            return tar_str;
+        }
+    </script>
+</body>
+</html>
