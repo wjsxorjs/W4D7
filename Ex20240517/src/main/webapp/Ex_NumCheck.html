@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ex_Regex</title>
+<title>Ex1_NumCheck</title>
 <style>
     form{
         display: flex;
@@ -72,7 +72,7 @@
                 return; //제어권 반환 - 아래 구문 수행 X
             }
             
-            final_str = remove_space(trimmed_str);
+            final_str = number_check(trimmed_str);
             
 
             box.innerHTML = final_str;
@@ -80,15 +80,18 @@
             
         }
 
-        function remove_space(src_str){
-            let tar_str = "";
+        function number_check(src_str){
+            let tar_str = "숫자: ";
+            let num_cnt = 0;
 
             for(let i=0; i<src_str.length;i++){
-                if(src_str[i] == " "){
+                if(src_str[i] < '0' || src_str[i] > '9'){
                     continue;
                 }
-                tar_str += src_str[i];
+                num_cnt++;
             }
+
+            tar_str += num_cnt+"개";
 
             return tar_str;
         }

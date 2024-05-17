@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex2_RegEx</title>
+<style>
+
+
+</style>
+</head>
+<body>
+    <form action="javascript:" method="post"> 
+        <label for="b_year">태어난 년도:</label>
+        <input type="text" id="b_year" name="bYear"/>
+        <button type="button" onclick="exe(this.form)">확인</button>
+    </form>
+
+
+
+
+
+
+    <script>
+        function exe(ff){
+            let str = ff.bYear.value;
+
+            let v1 = m_trim(str); // 공백 모두 제거
+
+            ff.bYear.value = v1;
+        }
+
+        function m_trim(ss){
+            // " " 공백을 찾아서 붙힌공백("")으로 바꿔주는 함수
+            let msg = ss.replace(/^\s+|\s+|\s+$/g,"");
+            /*
+                /^  :   처음 시작부분
+                \s  :   띄운 공백(" ")
+                +   :   + 기호 앞의 정규표현식과 일치하는 경우가 하나 이상일 때 
+                |   :   또는
+                $/  :   끝부분
+                g   :   찾음
+            */
+
+            return msg;
+        }
+        
+    </script>
+</body>
+</html>

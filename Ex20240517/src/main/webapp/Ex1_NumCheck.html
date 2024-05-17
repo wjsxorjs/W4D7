@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex1_NumCheck</title>
+<style>
+
+    #box{
+        margin-top: 10px;
+        border: 1px solid #000;
+        width: 200px;
+        height: 100px;
+    }
+
+</style>
+</head>
+<body>
+    <form action="javascript:" method="post"> 
+        <label for="b_year">태어난 년도:</label>
+        <input type="text" id="b_year" name="bYear"/>
+        <button type="button" onclick="exe(this.form)">확인</button>
+    </form>
+    <div id="box">
+
+    </div>
+
+
+
+
+
+
+    <script>
+        function exe(ff){ //ff는 form 객체
+            // let ff = document.forms[0];
+
+            // 폼 객체를 통해 폼 내부의 하위 요소들을 name으로 접근할 수 있다.
+            // ff.bYear
+            let b_year = ff.bYear.value.trim();
+            // console.log(b_year);
+
+            if(b_year == "" || b_year.length == 0){
+                alert("태어난 년도를 입력해주세요.");
+                ff.bYear.value = "";
+                ff.bYear.focus();
+
+                return;
+            }
+
+
+            let chk = checkNumber(b_year);
+
+            // 숫자일 경우에만 수행하도록 한다.
+            if(chk){
+                let now = new Date();//현재 날짜
+                
+                // 나이를 구하기 위해 현재날짜에서 년도만 추출하자.
+                let c_year = now.getFullYear();
+                let age = c_year-b_year;
+
+                let box = document.getElementById("box");
+                if(age<19){
+                    box.innerHTML = "미성년자";
+                } else{
+                    box.innerHTML = age+"세이므로 성인이시네요.";
+                }
+            } else{
+                alert("문자 또는 공백 등이\r\n포함되어서는 안됩니다.")
+            }
+
+        }
+
+        function checkNumber(str){
+            let value = true;
+            for(let i=0; i<str.length; i++){
+                let code = str.charCodeAt(i);
+                let ch = str.charAt(i);
+
+                console.log(ch+": "+code);
+
+                if(code<48 || code>57){
+                    // 숫자가 아니라면
+                    value = false;
+                    break;
+                }
+            }
+
+            return value;
+        }
+
+        
+    </script>
+</body>
+</html>
