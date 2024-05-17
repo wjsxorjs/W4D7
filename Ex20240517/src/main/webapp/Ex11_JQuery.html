@@ -31,7 +31,12 @@
 			// 아이디가 wrap인 요소 안에 존재하는 태그들 중 속성의 값이
 			// radio라고 되어있는 모든 요소들을 검색하여 변수 ar에 저장하자!
 			let ar = $("#wrap").find(":radio");
-			console.log(ar.length);
+			console.log(ar.length); // 3
+
+			// 검색된 결과인 ar의 마지막 radio버튼을 가져와서
+			// 선택이 되도록 설정하라.
+			// ar.eq(ar.length-1).prop("checked",true);
+			$(ar[ar.length-1]).prop("checked",true);
 		});
 	</script>
 </body>

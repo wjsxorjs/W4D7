@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex13_JQuery</title>
+<style>
+    .cBlue{
+        font-size: 20px;
+        font-weight: bold;
+        color: #0000ff;
+    }
+</style>
+</head>
+<body>
+    <button type="button" id="bt">적용</button>
+
+    <div>
+        <p>야호</p>
+        <p>금요일</p>
+        <p>금불?</p>
+        첫번째 div
+    </div>
+    
+    <div>
+        <p>그루토</p>
+        <p>몰디브</p>
+        <p>산토리니</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("div").eq(0).children().css("color","#ff0000");
+
+            let check = true;
+
+            $("#bt").click(function(){
+                // 두번째 div의 자식들에게 cBlue라는 클래스를 모두 적용하라
+                if(check){
+                    $("div").eq(1).children().addClass("cBlue");
+                    $(this).text("해제");
+                } else{
+                    $("div").eq(1).children().removeClass("cBlue");
+                    $(this).text("적용");
+                }
+                check = !check;
+
+                // let p_ar = $("div").eq(1).children()
+                // if(p_ar.hasClass("cBlue")){
+                //     p_ar.removeClass("cBlue");
+                // } else{
+                //     p_ar.addClass("cBlue");
+                    
+                // }
+                // $("div").eq(1).children().toggleClass("cBlue");
+
+            });
+
+        });
+    </script>
+</body>
+</html>

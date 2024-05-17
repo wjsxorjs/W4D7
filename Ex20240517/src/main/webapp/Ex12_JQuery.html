@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex12_JQuery</title>
+</head>
+<body>
+    <h1>next() 연습</h1>
+
+    <input type="checkbox" name="" id="ch1" value="0" />
+    <label for="ch1">공개용</label>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("#ch1").on("change",function(){
+                // 현재 checkbox가 체크가 된 상태면 label의 문자열은
+                // "비공개용"으로 변경, 만약! 체크가 안 된 상태면
+                // "공개용"으로 변경.
+                if($(this).is(":checked")){
+                    $(this).next().text("비공개용");
+                } else{
+                    $(this).next().text("공개용"); // .next() 현재객체의 '다음'객체
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
