@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex4_Event</title>
+</head>
+<body onload="exe()">
+    <h1>이벤트 연습</h1>
+
+    <select onchange="color(this)">
+        <option value="#ffffff">::선택하세요::</option>
+        <option value="#ff0000">빨강</option>
+        <option value="#00ff00">초록</option>
+        <option value="#0000ff">파랑</option>
+    </select>
+
+
+    <script>
+        function color(sel){
+            //선택된 index값
+            let idx = sel.selectedIndex;
+            let value = sel.value;
+
+            // console.log("선택된 index: "+idx+", 값: "+value);
+
+        }
+
+        function exe(){
+            console.log("body onload ^^");
+        }
+
+        // window.onload = function(){
+        //     console.log("window onload ^^");
+        // // body onload 중 하나만 불리며 window.onload가 더 우선순위를 가진다.
+        // }
+
+    </script>
+</body>
+</html>
