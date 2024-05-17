@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex8_JQuery</title>
+<style>
+    #box{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+    <h1>과목</h1>
+    <button type="button" id="btn">확인</button>
+
+    <ul>
+        <li>JavaScript</li>
+        <li>ActionScript</li>
+        <li>TypeScript</li>
+        <li>CoffeeScript</li>
+    </ul>
+
+    <ul>
+        <li>JAVA</li>
+        <li>C++</li>
+        <li>Python</li>
+        <li>Spring</li>
+    </ul>
+
+    <div id="box"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 아이디가 btn인 요소에게 클릭이벤트 적용
+            $("#btn").bind("click",function(){
+                // li태그 모두 가져오기
+                // let li_ar = $("li");
+                
+                // $("#box").html(li_ar);
+
+                // jQuery에서 현재문서에 있는 li태그를 만날 때마다 반복수행하는 문법(each)
+                let str = "";
+                $("li").each(function(){
+                    // li태그를 만날 때마다 수행하는 곳
+                    // 이때 li태그 자신이 가지고 있는 문자열을 얻어낸다.
+                    let msg = this.innerText;
+                    // let msg = $(this).text();
+                    str += "&nbsp;-&nbsp;" + msg + "<br/>";
+                });
+
+
+                $("#box").html(str);
+
+
+            });
+        });
+
+    </script>
+</body>
+</html>

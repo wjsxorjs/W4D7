@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex7_JQuery</title>
+</head>
+<body>
+    <button type="button" id="bt1">CSS적용(전체)</button>
+    <button type="button" id="bt2">CSS적용(홀수만)</button>
+    <button type="button" id="bt3">CSS적용(짝수만)</button>
+    <button type="button" id="bt4">초기화</button>
+    <p/>
+
+    <p>p요소1</p>
+    <p>p요소2</p>
+    <p>p요소3</p>
+    <a href="">a요소1</a>
+    <p>p요소4</p>
+    <p>p요소5</p>
+    <p>p요소6</p>
+    <p>p요소7</p>
+    <a href="">a요소2</a>
+    <p>p요소8</p>
+    <p>p요소9</p>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function (){
+        // $(function(){
+            $("#bt1").bind("click",function(){
+                $("p").css("color","#ff0000");
+            });
+
+            $("#bt2").bind("click",function(){
+                let p_ar = $("p");
+                // 짝수번째 p태그만 css 변경
+                for(let i=0; i<p_ar.length;i++){
+                    if(i%2 == 1){
+                        $(p_ar[i]).css("color","#ff0000");
+                        // p_ar[i].style.color = "#ff0000";
+                    } else{
+                        $(p_ar[i]).css("color","#000000");
+                    }
+                }
+
+            });
+            
+            $("#bt3").bind("click",function(){
+                let p_ar = $("p");
+                // 짝수번째 p태그만 css 변경
+                for(let i=0; i<p_ar.length;i++){
+                    if(i%2 == 0){
+                        $(p_ar[i]).css("color","#ff0000");
+                        // p_ar[i].style.color = "#ff0000";
+                    } else{
+                        $(p_ar[i]).css("color","#000000");
+                        // p_ar[i].css("color","#000000") < 잘못된 문장;
+                        // p_ar[i]는 스크립트 문법이고
+                        // .css("color","#000000")는 jQuery문법이기 때문
+                    }
+                }
+
+            });
+
+            $("#bt4").bind("click",function(){
+                $("p").css("color","#000000");
+            });
+        });
+    </script>
+</body>
+</html>

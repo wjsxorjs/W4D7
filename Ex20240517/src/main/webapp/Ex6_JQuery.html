@@ -33,9 +33,13 @@
             $("#bt2").click(function (){
                 $("#box").css("background-color","#00ff00");
             });
-            $("#bt3").click(function (){
-                $("#box").css("background-color","#0000ff");
+            // $("#bt3").click(function (){
+            $("#bt3").bind("click", function (){
+                $("#box").css("backgroundColor","#0000ff");
+                // $("#bt3").unbind("click");
+                // 위의 처럼 이벤트를 취소시킬 수도 있음
             });
+
         });
 
         
