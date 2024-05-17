@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex9_JQuery</title>
+<style>
+    #box{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+    <h1>과목</h1>
+    <button type="button" id="btn">확인</button>
+
+    <ul>
+        <li id="t1">JavaScript</li>
+        <li id="t2">ActionScript</li>
+        <li id="t3">TypeScript</li>
+        <li id="t4">CoffeeScript</li>
+    </ul>
+
+    <ul>
+        <li id="t5">JAVA</li>
+        <li id="t6">C++</li>
+        <li id="t7">Python</li>
+        <li id="t8">Spring</li>
+    </ul>
+
+    <div id="box"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 아이디가 btn인 요소에게 클릭이벤트 적용
+            $("#btn").bind("click",function(){
+                // li태그 모두 가져오기
+                let li_ar = $("li");
+                
+                // 두번째 li요소의 글꼴색을 빨강색으로 넣는다.
+                $(li_ar[1]).css("color","#ff0000");
+                $(li_ar[1]).css("font-weight","bold");
+                // li_ar[1].style.color = "#ff0000";
+
+                // 네번째 li요소의 글꼴색을 파란색으로 변경
+                // $(li_ar[3]).css("color","#0000ff");
+                // jQuery에서 배열의 index로 접근할 때는 eq() 사용
+                li_ar.eq(3).css("color","#0000ff");
+                li_ar.eq(3).css("font-weight","bold");
+
+
+                let idx = li_ar.index($("#t7"));
+                li_ar.eq(idx).css("color","#00ff00");
+                li_ar.eq(idx).css("font-weight","bold");
+
+
+            });
+        });
+
+    </script>
+</body>
+</html>
